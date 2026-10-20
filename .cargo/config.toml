@@ -1,0 +1,10 @@
+# This host is a PRoot Debian rootfs on Android. Two toolchains are visible:
+# Debian gcc (glibc, matches the aarch64-unknown-linux-gnu Rust target) and
+# Termux clang (Android target). Rust must link with Debian gcc, or ld.lld
+# fails on -lgcc_s.
+[target.aarch64-unknown-linux-gnu]
+linker = "/usr/bin/cc"
+
+[env]
+CC = "/usr/bin/cc"
+CXX = "/usr/bin/c++"
